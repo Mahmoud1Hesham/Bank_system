@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+class Eployee: public Person{
+private :
+    double salary;
+public:
+    void setSalary(double _salary){
+        salary = _salary;
+    }
+    double getSalary(){
+        return salary;
+    }
+    void display(){
+        cout<<"Name :  "<<name<<"Password  : "<<password<<"Id : "<<id<<"Salary : "<<salary<<endl; 
+    }
+    
+};
+int main(){
+
+
+
+}

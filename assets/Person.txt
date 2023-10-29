@@ -1,0 +1,66 @@
+#include <iostream>
+
+using namespace std;
+
+class perrson
+{
+private :
+    string name, password ;
+    int id ;
+public:
+
+    //setteres
+
+    void set_Name(string _name)
+    {
+        name = _name ;
+    }
+
+    void set_Password(string _password)
+    {
+        password = _password ;
+
+
+    }
+   void set_Id(int _id)
+    {
+        id = _id ;
+
+    }
+
+    //getters
+
+    string get_Name()
+    {
+        return name ;
+    }
+
+    string get_Password()
+    {
+        return password ;
+    }
+    int get_Id()
+    {
+        return id ;
+    }
+
+    virtual void display()
+    {
+
+        cout<<"Name : "<<name<<" "<<"Password : "<<password<<" "<<"Id : "<<id<<endl ;
+
+    }
+
+};
+
+int main()
+{
+   
+
+
+
+
+
+
+    return 0;
+}
