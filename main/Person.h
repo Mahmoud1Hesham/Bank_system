@@ -29,7 +29,7 @@ public:
 
 	void setPassword(string& newPassword)
 	{
-		if (Validation::checkCharPass(newName)) {
+		if (Validation::checkCharPass(newPassword)) {
 			password = newPassword;
 		}
 		else {
