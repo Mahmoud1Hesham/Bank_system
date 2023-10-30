@@ -1,27 +1,29 @@
 #pragma once
 #ifndef VALIDATION_H
 #define VALIDATION_H
-#include "Person.h"
+//#include "Person.h"
 #include<iostream>
 #include<string>
 using namespace std;
-class Validation : public Person
+class Validation
 {
 public:
-	static int checkCharName(string& newName) {
+	bool checkCharName(string& newName) {
 		if (newName.size() >= 5 && newName.size() <= 20) {
-			name = newName;
+			/*name = newName;*/
+			return true;
 		}
 		else {
-			cout << "Invalid name. Name must be alphabetic characters and have a length between 5 and 20." << endl;
+			return false;
 		}
 	}
-	static int CheckCharPass(string& newPassword) {
+	bool checkCharPass(string& newPassword) {
 		if (newPassword.size() >= 8 && newPassword.size() <= 20) {
-			password = newPassword;
+			/*password = newPassword;*/
+			return true;
 		}
 		else {
-			cout << "Invalid password. Password must have a length between 8 and 20." << endl;
+			return false;
 		}
 	}
 };

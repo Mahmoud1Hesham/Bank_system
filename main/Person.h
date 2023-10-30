@@ -5,10 +5,10 @@
 #include<string>
 #include "Validation.h"
 using namespace std;
-class Person :  public Validation
+class Person
 {
 protected:
-	static string name, password;
+	string name, password;
 	int id = 0;
 public:
 	Person(int _id, string _name, string _password) {
@@ -18,12 +18,24 @@ public:
 	}	//setteres
 	void setName(string& newName)
 	{
-		Validation::checkCharName(newName);
+		if (Validation::checkCharName(newName)) {
+			name = newName;
+		}
+		else {
+			cout << "Invalid name. Name must be alphabetic characters and have a length between 5 and 20." << endl;
+		}
+
 	}
 
 	void setPassword(string& newPassword)
 	{
-		Validation::CheckCharPass(newPassword);
+		if (Validation::checkCharPass(newName)) {
+			password = newPassword;
+		}
+		else {
+			cout << "Invalid password. Password must have a length between 8 and 20." << endl;
+		}
+
 	}
 	void setId(int _id)
 	{
@@ -45,8 +57,8 @@ public:
 	virtual void display()
 	{
 		cout << "Name :" << name <<
-		" \n" << "Password : " << password << " \n" <<
-		"Id : " << id << endl;
+			" \n" << "Password : " << password << " \n" <<
+			"Id : " << id << endl;
 	}
 };
 
