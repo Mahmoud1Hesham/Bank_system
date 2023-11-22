@@ -1,6 +1,4 @@
 #pragma once
-#ifndef PERSON_H
-#define PERSON_H
 #include<iostream>
 #include<string>
 #include "Validation.h"
@@ -22,7 +20,7 @@ public:
 			name = newName;
 		}
 		else {
-			cout << "Invalid name. Name must be alphabetic characters and have a length between 5 and 20." << endl;
+			cout << "Invalid input. the required Name must contain alphabetic characters and contain a length between 5 and 20." << endl;
 		}
 
 	}
@@ -33,7 +31,7 @@ public:
 			password = newPassword;
 		}
 		else {
-			cout << "Invalid password. Password must have a length between 8 and 20." << endl;
+			cout << "Invalid input. The required Password's range must be between 8 and 20." << endl;
 		}
 
 	}
@@ -62,4 +60,4 @@ public:
 	}
 };
 
-#endif
+

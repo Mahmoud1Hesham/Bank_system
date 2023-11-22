@@ -1,6 +1,4 @@
 #pragma once
-#ifndef CLIENT_H
-#define CLIENT_H
 #include "Person.h"
 #include<iostream>
 #include<string>
@@ -11,26 +9,25 @@ class Client : public Person
 	double balance = 0;
 public:
 	Client(int _id, string _name, string _password, double _balance) :Person(_id, _name, _password) {
-		balance = _balance;
+		setBalance(_balance);
 
+		//balance = _balance;
 	}
 	void setBalance(double _balance) {
-		if (_balance > 1500) {
+		if (Validation::checkBalance(_balance)) {
 			balance = _balance;
-		}
-		else {
-			cout << "The minimum cannot be exceeded!" << endl;
 		}
 	}
 	double getBalance() {
 		return balance;
 	}
 	void deposit(double amount) {
-		balance += amount;
+		if (amount > 0)
+			balance += amount;
 		cout << "balance after transaction: " << balance << endl;
 	}
 	void withDraw(double amount) {
-		if (balance >= amount) {
+		if (balance >= amount && amount > 0) {
 			balance -= amount;
 			cout << "Balance after transaction: " << balance << endl;
 		}
@@ -52,10 +49,12 @@ public:
 		cout << "Balance Is: " << balance << endl;
 	}
 	void display() {
-		Person::display();		
+		Person::display();
 		cout << "Your Balance Is: " << balance << endl;
 	}
 
 };
 
-#endif
+static vector<Client> allClients;
+static vector<Client>::iterator clIt;
+

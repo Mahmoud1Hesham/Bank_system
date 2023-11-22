@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ADMIN_H
-#define ADMIN_H
 #include "Employee.h"
 #include<iostream>
 #include<string>
@@ -12,25 +10,14 @@ public:
 		salary = _salary;
 	}
 	void setSalary(double _salary) {
-		try {
-			if (_salary < 5000)
-			{
-				throw 1;
-			}
-			else
-			{
-				salary = _salary;
-			}
-		}
-		catch (int)
-		{
-			cout << "Salary below 5000" << endl;
+		if (Validation::checkSalary(_salary)) {
+			salary = _salary;
 		}
 	}
-	void display()
-	{
-		cout << "ID : " << id << "& Name : " << name << "& Password : " << password << "Salary : " << salary << endl;
+	void display() {
+		cout << "ID: " << id << ", Name: " << name << ", Password: " << password << ", Salary: " << salary << endl;
 	}
 };
 
-#endif
+static vector<Admin> allAdmins;
+static vector<Admin>::iterator adIt;
