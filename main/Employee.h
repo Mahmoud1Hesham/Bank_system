@@ -23,8 +23,20 @@ public:
 	double getSalary() {
 		return salary;
 	}
+	void editClient(int id, string name, string password, double balance) {
+		searchClient(id)->setName(name);
+		searchClient(id)->setPassword(password);
+		searchClient(id)->setBalance(balance);
+	}
 	void display() {
 		cout << "Name :  " << name << "\nPassword  : " << password << "\nId : " << id << "\nSalary : " << salary << endl;
+	}
+	Client* listClient() {
+		for (clIt = allClients.begin();clIt != allClients.end(); clIt++) {
+			if (clIt->getId() == id) return clIt._Ptr;
+			clIt->display();
+			cout << "=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=\n";
+		}
 	}
 	void addClient(Client& client) {
 		allClients.push_back(client);
