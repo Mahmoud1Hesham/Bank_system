@@ -34,6 +34,63 @@ public:
 		}
 		return true;
 	}
+
+	static string inputName() {
+		string name;
+		system("cls");
+		cout << "Enter name : ";
+		cin >> name;
+		while (!checkCharName(name)) {
+			system("cls");
+			cout << "Invalid user name ! \n";
+			cout << "The name needs to be greater than 5 and lesser than 20! \n";
+			cout << "Enter the name AGAIN! : ";
+			cin >> name;
+		}
+		return name; 
+	}
+	static string inputPassword() {
+		string password;
+		system("cls");
+		cout << "Enter Password : ";
+		cin >> password;
+		while (!checkCharPass(password)) {
+			system("cls");
+			cout << "Invalid password ! \n";
+			cout << "The Password needs to be greater than 8 and lesser than 20! \n";
+			cout << "Enter Password AGAIN! : ";
+			cin >> password;
+		}
+		return password; 
+	}
+	static double inputBalance() {
+		double balance;
+		system("cls");
+		cout << "Enter balance : ";
+		cin >> balance;
+		while (balance < 1500){
+			system("cls");
+			cout << "Invalid balance ! \n";
+			cout << "Balance needs to be at least 1500! \n";
+			cout << "Enter Balance AGAIN! : ";
+			cin >> balance;
+		}
+		return balance;
+	}
+	static double inputSalary() {
+		double salary;
+		system("cls");
+		cout << "Enter salary : ";
+		cin >> salary;
+		while (salary < 1500){
+			system("cls");
+			cout << "Invalid salary ! \n";
+			cout << "Salary needs to be at least 5000! \n";
+			cout << "Enter salary AGAIN! : ";
+			cin >> salary;
+		}
+		return salary;
+	}
 };
 
 

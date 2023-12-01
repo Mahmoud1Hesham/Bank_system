@@ -15,6 +15,7 @@ public:
 	Employee(double _salary, int _id, string _name, string _password) : Person(_id, _name, _password) {
 		salary = _salary;
 	}
+	Employee() {};
 	void setSalary(double _salary) {
 		if (Validation::checkSalary(_salary)) {
 			salary = _salary;
@@ -29,7 +30,8 @@ public:
 		searchClient(id)->setBalance(balance);
 	}
 	void display() {
-		cout << "Name :  " << name << "\nPassword  : " << password << "\nId : " << id << "\nSalary : " << salary << endl;
+		Person::display();
+		cout <<  "Salary : " << salary << endl;
 	}
 	Client* listClient() {
 		for (clIt = allClients.begin();clIt != allClients.end(); clIt++) {

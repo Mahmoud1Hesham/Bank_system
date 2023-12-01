@@ -50,7 +50,7 @@ public:
         file.open("Employee.txt");
         while (getline(file, line)) {
             Employee e = Parser::parserToEmployee(line);
-            allEmployee.push_back(e);
+            allEmployees.push_back(e);
         }
         file.close();
     }

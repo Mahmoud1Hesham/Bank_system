@@ -13,7 +13,9 @@ public:
 		this->id = _id;
 		this->name = _name;
 		this->password = _password;
-	}	//setteres
+	}	
+	Person() {};
+	//setteres
 	void setName(string& newName)
 	{
 		if (Validation::checkCharName(newName)) {

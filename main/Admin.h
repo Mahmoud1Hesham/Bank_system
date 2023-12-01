@@ -39,5 +39,5 @@ public:
 	}
 };
 
-static vector<Admin> allAdminss;
+static vector<Admin> allAdmins;
 static vector<Admin>::iterator adIt;

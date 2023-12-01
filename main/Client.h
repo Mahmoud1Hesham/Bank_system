@@ -10,9 +10,8 @@ class Client : public Person
 public:
 	Client(int _id, string _name, string _password, double _balance) :Person(_id, _name, _password) {
 		setBalance(_balance);
-
-		//balance = _balance;
 	}
+	Client() {};
 	void setBalance(double _balance) {
 		if (Validation::checkBalance(_balance)) {
 			balance = _balance;
@@ -50,7 +49,7 @@ public:
 	}
 	void display() {
 		Person::display();
-		cout << "Your Balance Is: " << balance << endl;
+		cout << "Balance : " << balance << endl;
 	}
 
 };
