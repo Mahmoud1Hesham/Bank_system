@@ -5,23 +5,23 @@ using namespace std;
 class EmployeeManager
 {
 private:
-	static void printClientMenu() {
+	static void printEmployeeMenu() {
 		system("cls");
-		cout << "---- Client Menu ----\n";
+		cout << "---- Employee Menu ----\n";
 		cout << "1. Display Info\n";
-		cout << "2. Check Balance\n";
-		cout << "3. Update Password\n";
-		cout << "4. Withdraw\n";
-		cout << "5. Deposit\n";
-		cout << "6. Transfer\n";
+		cout << "2. Update Password\n";
+		cout << "3. Add new Client\n";
+		cout << "4. Search for Client\n";
+		cout << "5. List all Clients\n";
+		cout << "6. Edit Client info\n";
 		cout << "7. Back\n";
 		cout << "---------------------\n";
 	}
-	//static void Back(Employee* employee) {
-	//	cout << endl;
-	//	system("pause");
-	//	employeeOptions(employee);
-	//}
+	static void Back(Employee* employee) {
+		cout << endl;
+		system("pause");
+		employeeOptions(employee);
+	}
 public:
     static void newClient(Employee* employee) {
 		Client c;
@@ -67,6 +67,51 @@ public:
 				cout << "Client Info Updated!" << endl;
 			}
 		}
-
+		static Employee* Login(int id, string password) {
+			for (emIt = allEmployees.begin();emIt != allEmployees.end();emIt++) {
+				if (emIt->getId() == id && emIt->getPassword() == password) {
+					return emIt._Ptr;
+				}
+				return NULL;
+			}
+		}
+		static bool employeeOptions(Employee* employee) {
+			printEmployeeMenu();
+			cout << "Your Choise is : ";
+			int choise;
+			cin >> choise;
+			switch (choise)
+			{
+			case 1:
+				system("cls");
+				employee->display();
+				break;
+				case 2:
+					ClientManager::updatePassword(employee);
+					FileManager::updateEmployees();
+					break;
+				case 3:
+					newClient(employee);
+					break;
+				case 4:
+					searchForClient(employee);
+					break;
+				case 5:
+					listAllClients(employee);
+					break;
+				case 6:
+					editClientInfo(employee);
+					break;
+				case 7:
+					return false;
+					break;
+			default:
+				system("cls");
+				employeeOptions(employee);
+				return true;
+			}
+			Back(employee);
+			return true;
+		}
 };
 
